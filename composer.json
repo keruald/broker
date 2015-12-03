@@ -34,7 +34,7 @@
   },
   "autoload": {
     "psr-4": {
-      "Keruald\\Broker\\": ""
+      "Keruald\\Broker\\": "src/"
     }
   },
   "scripts": {
