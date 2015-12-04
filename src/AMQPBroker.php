@@ -90,6 +90,9 @@ class AMQPBroker extends Broker {
 
     /**
      * Sets an exchange point as a target to publish messages to
+     *
+     * @param string $name The exchange name
+     * @param string $type The exchange type (direct, fanout, topic, headers)
      */
     public function setExchangeTarget ($name, $type = 'topic') {
         $this->targetName = $name;
