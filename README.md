@@ -2,7 +2,7 @@
 
 Abstraction library to use message brokers.
 
-Current focus is to prepare a reference AQMP implementation.
+Current focus is to prepare a reference AMQP implementation.
 
 ## Sample code
 
