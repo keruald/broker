@@ -17,6 +17,18 @@ class BlackholeBroker extends Broker implements BuildableFromConfigInterface {
     }
 
     /**
+     * Determines if the configuration wants an omnipotent blackhole
+     *
+     * @param array $params An array with omnipotence information
+     * @return bool
+     */
+    static private function configWantsOmnipotence ($params) {
+        return array_key_exists('omnipotence', $params)
+               &&
+               $params['omnipotence'];
+    }
+
+    /**
      * Initializes a new instance of the broker from specified parameters
      *
      * @param array $params An array with omnipotence information
@@ -25,7 +37,7 @@ class BlackholeBroker extends Broker implements BuildableFromConfigInterface {
     static public function makeFromConfig ($params) {
         $instance = new self;
 
-        if ($params['omnipotence']) {
+        if (self::configWantsOmnipotence($params)) {
             $instance->acceptAllMethodCalls();
         }
 
