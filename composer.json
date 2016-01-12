@@ -2,7 +2,6 @@
   "name": "keruald/broker",
   "description": "Message broker abstraction layer",
   "license": "BSD-2-Clause",
-  "version": "0.3.1",
   "repositories": [
     {
       "type": "vcs",
