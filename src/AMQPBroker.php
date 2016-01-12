@@ -52,14 +52,14 @@ class AMQPBroker extends Broker {
      * Connects to the message broker
      *
      * @param string $host The broker host
-     * @param string $port The broker port
+     * @param int $port The broker port
      * @param string $username The broker username
      * @param string $password The broker password
      * @param string $vhost The broker vhost
      */
     public function connect (
         $host = 'localhost',
-        $port = '5672',
+        $port = 5672,
         $username = 'guest',
         $password = 'guest',
         $vhost = '/'
