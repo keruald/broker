@@ -16,6 +16,22 @@ class BlackholeBroker extends Broker {
         return $this;
     }
 
+    /**
+     * Initializes a new instance of the broker from specified parameters
+     *
+     * @param array $params An array with omnipotence information
+     * @return Keruald\Broker\BlackholeBroker A connected instance of the broker
+     */
+    static public function makeFromConfig ($params) {
+        $instance = new self;
+
+        if ($params['omnipotence']) {
+            $instance->acceptAllMethodCalls();
+        }
+
+        return $instance;
+    }
+
     ///
     /// Omnipotence to ease lightweight mock testing without any lib
     ///

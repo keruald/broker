@@ -44,6 +44,42 @@ class AMQPBroker extends Broker {
         $this->disconnect();
     }
 
+    /**
+     * Gets the default values for connect method
+     *
+     * @return array
+     */
+    private static function getDefaultValues () {
+        return [
+            'host' => 'localhost',
+            'port' => 5672,
+            'username' => 'guest',
+            'password' => 'guest',
+            'vhost' => '/',
+        ];
+    }
+
+    /**
+     * Initializes a new instance of the broker from specified parameters
+     *
+     * @param array $params An array with connect information
+     * @return Keruald\Broker\AMQPBroker A connected instance of the broker
+     */
+    static public function makeFromConfig ($params) {
+        $instance = new self;
+
+        $params = self::getDefaultValues() + $params;
+        $instance->connect(
+            $params['host'],
+            $params['port'],
+            $params['username'],
+            $params['password'],
+            $params['vhost']
+        );
+
+        return $instance;
+    }
+
     ///
     /// Connection
     ///
