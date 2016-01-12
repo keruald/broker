@@ -5,7 +5,7 @@ namespace Keruald\Broker;
 use PhpAmqpLib\Connection\AMQPStreamConnection;
 use PhpAmqpLib\Message\AMQPMessage;
 
-class AMQPBroker extends Broker {
+class AMQPBroker extends Broker implements BuildableFromConfigInterface {
 
     ///
     /// Private members

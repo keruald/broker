@@ -2,7 +2,7 @@
 
 namespace Keruald\Broker;
 
-class BlackholeBroker extends Broker {
+class BlackholeBroker extends Broker implements BuildableFromConfigInterface {
     ///
     /// Broker implementation
     ///
