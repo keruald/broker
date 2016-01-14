@@ -68,7 +68,8 @@ class AMQPBroker extends Broker implements BuildableFromConfigInterface {
     static public function makeFromConfig ($params) {
         $instance = new self;
 
-        $params = self::getDefaultValues() + $params;
+        $params += self::getDefaultValues();
+
         $instance->connect(
             $params['host'],
             $params['port'],
