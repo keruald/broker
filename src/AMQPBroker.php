@@ -130,13 +130,15 @@ class AMQPBroker extends Broker implements BuildableFromConfigInterface {
      *
      * @param string $name The exchange name
      * @param string $type The exchange type (direct, fanout, topic, headers)
+     * @param bool $durable Indicates if the durable feature should be enabled
      */
-    public function setExchangeTarget ($name, $type = 'topic') {
+    public function setExchangeTarget ($name, $type = 'topic',
+                                       $durable = false) {
         $this->targetName = $name;
         $this->channel->exchange_declare(
             $name,
             $type,
-            false, false, false // don't autodelete this target
+            false, $durable, false // don't autodelete this target
         );
         return $this;
     }
