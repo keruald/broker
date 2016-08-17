@@ -40,7 +40,7 @@ class AMQPBroker extends Broker implements BuildableFromConfigInterface {
     /**
      * Cleans up resources
      */
-    function __destruct() {
+    public function __destruct() {
         $this->disconnect();
     }
 
