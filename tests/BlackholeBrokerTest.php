@@ -1,7 +1,8 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Keruald\Broker\Tests;
 
+use BadFunctionCallException;
 use Keruald\Broker\BlackholeBroker;
 
 class BlackholeBrokerTest extends TestCase {
@@ -10,15 +11,14 @@ class BlackholeBrokerTest extends TestCase {
      */
     protected $instance;
 
-    protected function setUp() {
+    protected function setUp() : void {
         $this->instance = new BlackholeBroker();
     }
 
-    /**
-     * @expectedException \BadFunctionCallException
-     */
     public function testNonDefaultOmnipotence () {
         // By default, our blackhole broker shouldn't accept any method.
+        $this->expectException(BadFunctionCallException::class);
+
         $this->instance->spreadLove();
     }
 

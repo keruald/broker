@@ -1,7 +1,7 @@
-<?php
-
+<?php declare(strict_types=1);
 namespace Keruald\Broker\Tests;
 
+use InvalidArgumentException;
 use Keruald\Broker\BrokerFactory;
 
 class BrokerFactoryTest extends TestCase {
@@ -19,6 +19,8 @@ class BrokerFactoryTest extends TestCase {
     }
 
     public function testOmnipotenceBlackhole () {
+        $this->expectNotToPerformAssertions();
+
         $broker = BrokerFactory::make([
             'driver' => 'blackhole',
             'omnipotence' => true,
@@ -26,17 +28,15 @@ class BrokerFactoryTest extends TestCase {
         $broker->spreadLove(); // a method not in Broker abstract class
     }
 
-    /**
-     * @expectedException InvalidArgumentException
-     */
     public function testEmptyParameters () {
+        $this->expectException(InvalidArgumentException::class);
+
         BrokerFactory::make([]);
     }
 
-    /**
-     * @expectedException InvalidArgumentException
-     */
     public function testInvalidParameters () {
+        $this->expectException(InvalidArgumentException::class);
+
         BrokerFactory::make([
             'foo' => 'bar'
         ]);

@@ -1,8 +1,10 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Keruald\Broker\Tests;
 
-class TestCase extends \PHPUnit_Framework_TestCase {
+use PHPUnit\Framework\TestCase as BaseTestCase;
+
+class TestCase extends BaseTestCase {
     /**
      * Asserts the specified object follows a method cascading pattern
      *
@@ -15,7 +17,7 @@ class TestCase extends \PHPUnit_Framework_TestCase {
         // to our test, then we call one par one each method,
         // each time verifying the returned type is still the same.
 
-        $type = get_class($instance);
+        $type = $instance::class;
 
         foreach ($methodsCascade as $method) {
             $methodName = array_shift($method);

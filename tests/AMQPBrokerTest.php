@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Keruald\Broker\Tests;
 
@@ -10,7 +10,7 @@ class AMQPBrokerTest extends TestCase {
      */
     protected $instance;
 
-    protected function setUp() {
+    protected function setUp() : void {
         $this->instance = new AMQPBroker();
     }
 
