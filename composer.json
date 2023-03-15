@@ -21,7 +21,7 @@
     "RabbitMQ"
   ],
   "support": {
-    "irc": "irc://irc.freenode.net/wolfplex",
+    "irc": "irc://irc.libera.chat/wolfplex",
     "issues": "http://devcentral.nasqueron.org"
   },
   "require": {
